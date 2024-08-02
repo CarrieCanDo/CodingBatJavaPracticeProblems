@@ -37,6 +37,7 @@ public class Strings {
         return "<" + tag + ">" + word + "</" + tag + ">";
     }
 
+
     /*
     The method makeOutWord inserts a given word into the middle of an "out" string and
     returns the result.
@@ -47,6 +48,7 @@ public class Strings {
         return start + word + end;
     }
 
+
     /*
     The method extraEnd returns a new string consisting of three copies of the last two characters of the
     input string.
@@ -56,12 +58,34 @@ public class Strings {
         return lastTwoChars + lastTwoChars + lastTwoChars;
     }
 
-    public String missingChar(String str, int n) {
-        String front = str.substring(0, n);
-        String back = str.substring(n + 1);
 
-        return front + back;
+
+/* given a string of even length, return the first half so the string WooHoo yields Woo */
+    public String firstHalf(String str) {
+        int length = str.length();/*get the length of the string*/
+        int halfLength = length/2;/*calculate the midpoint*/
+        return str.substring(0, halfLength);/*return the first half of the string*/
     }
+
+
+    /*Given a string, return a version without the first and last char, so "Hello" yields "ell".
+    The string length will be at least 2*/
+    public String withoutEnd(String str) {//Method declaration; access level-public, return String, name withoutEnd, parameters(String str)
+        return str.substring(1, str.length() - 1); //method body - defines action, returns single stmt
+    }//Hello - (e, (ello-1)) = ell
+
+
+
+    /*The method firstTwo returns the first two characters of a string.
+    If the string is shorter than length 2, it returns the entire string.*/
+    public String firstTwo(String str) {
+    if (str.length() < 2) {
+        return str; // Return the string itself if it's shorter than 2 characters
+      } else {
+        return str.substring(0, 2); // Return the first two characters of the string
+      }
+    }
+
 
 
     // Main method to test the methods
@@ -83,9 +107,15 @@ public class Strings {
         // Test extraEnd
         System.out.println(notes.extraEnd("Hello")); // Output: lololo
 
-        // Test missingChar
-        System.out.println(notes.missingChar("kitten", 1)); // Output: ktten
-        System.out.println(notes.missingChar("kitten", 0)); // Output: itten
-        System.out.println(notes.missingChar("kitten", 4)); // Output: kittn
+        // Test firstHalf
+        System.out.println(notes.firstHalf("WooHoo"));   // Output: "Woo"
+
+        // Test withoutEnd
+        System.out.println(notes.withoutEnd("Hello")); //output: ell
+
+        // Test firstTwo
+        System.out.println(notes.firstTwo("KittyKat")); //output: Ki
     }
 }
+
+
